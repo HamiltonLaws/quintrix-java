@@ -9,6 +9,6 @@ public class App
        
        dogOne.setDog("Choppo",3,"Chiwawa",(float) 40.66);
        
-       System.out.println("The name of the dog is " + dogOne.getAge() + "\nThey are " + dogOne.getAge() + "\nThey are a "+ dogOne.bread+ "\nThey are for sale for " + dogOne.price);
+       System.out.println("The name of the dog is " + dogOne.getAge() + "\nThey are " + dogOne.getAge() + "\nThey are a "+ dogOne.getBread()+ "\nThey are for sale for $" + dogOne.getPrice());
     }
 }

@@ -2,10 +2,10 @@ package com.quintrix.jfs;
 
 public class Dog {
 	
-	String name;
-	int age;
-	String bread;
-	float price;
+	private String name;
+	private int age;
+	private String bread;
+	private float price;
 	
 	public void setDog(String newName,int newAge, String newBread, float newPrice) {
 		this.name = newName;
