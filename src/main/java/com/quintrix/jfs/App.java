@@ -1,15 +1,14 @@
 package com.quintrix.jfs;
 
-/**
- * Hello world!
- *
- */
+
 public class App 
 {
     public static void main( String[] args )
     {
-       for(int i =0; i<8; i++) {
-    	   System.out.println("Hello " + i);
-       }
+       Dog dogOne = new Dog();
+       
+       dogOne.setDog("Choppo",3,"Chiwawa",(float) 40.66);
+       
+       System.out.println("The name of the dog is " + dogOne.getAge() + "\nThey are " + dogOne.getAge() + "\nThey are a "+ dogOne.bread+ "\nThey are for sale for " + dogOne.price);
     }
 }
