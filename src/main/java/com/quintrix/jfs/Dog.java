@@ -3,7 +3,7 @@ package com.quintrix.jfs;
 public class Dog {
 
 	private String name;
-	private int age;
+	private Integer age;
 	private String breed;
 	private float price;
 

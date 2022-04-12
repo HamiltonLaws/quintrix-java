@@ -1,12 +1,8 @@
 package com.quintrix.jfs;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Scanner;
+import java.util.stream.Collectors;
 
 public class App {
 	public static void main(String[] args) {
@@ -19,9 +15,17 @@ public class App {
 
 		dogList.add(dogOne);
 
-		Dog dogTwo = new Dog("Jasper", 6, "Husky", (float) 100.99);
+		Dog dogTwo = new Dog("Jasper", 6, "Husky", (float) 55.99);
+		Dog dogThree = new Dog("Buddy", 5, "Golden Retriver", (float) 66.99);
+		Dog dogFour = new Dog("Happy", 3, "Corgi", (float) 59.99);
+		Dog dogFive = new Dog("Lorenz", 4, "German Shepherd", (float) 56.99);
+		Dog dogSix = new Dog("Poppy", 2, "Husky", (float) 69.99);
 
 		dogList.add(dogTwo);
+		dogList.add(dogThree);
+		dogList.add(dogFour);
+		dogList.add(dogFive);
+		dogList.add(dogSix);
 
 		// for (Dog d : dogList) {
 		// System.out.println(d);
@@ -31,49 +35,21 @@ public class App {
 			System.out.println(p);
 		});
 
-		// System.out.println("The name of the dog is " + dogOne.getAge() + "\nThey are
-		// " + dogOne.getAge() + "\nThey are a "+ dogOne.getBreed()+ "\nThey are for
-		// sale for $" + dogOne.getPrice());
+		// Filers the list to show only the breads starting with H
+		dogList.stream().filter((s) -> s.getBreed().startsWith("H")).forEach(System.out::println);
 
-		// Trying stuff with I/O
-		try {
-			File myObj = new File("data.txt");
-			if (myObj.createNewFile()) {
-				System.out.println("File created: " + myObj.getName());
-			} else {
-				System.out.println("File already exists.");
-			}
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
+		// counts the number of dogs
+		long count = dogList.stream().count();
 
-		Scanner keyboard = new Scanner(System.in);
-		System.out.println("Enter what you want to write to the file.");
-		String userData = keyboard.nextLine();
-		keyboard.close();
-		try {
-			FileWriter myWriter = new FileWriter("data.txt");
-			myWriter.write(userData);
-			myWriter.close();
-			System.out.println("Successfully wrote to the file.");
-		} catch (IOException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
+		System.out.println("The list has " + count + " dogs");
 
-		try {
-			File myObj = new File("data.txt");
-			Scanner myReader = new Scanner(myObj);
-			while (myReader.hasNextLine()) {
-				String data = myReader.nextLine();
-				System.out.println(data);
-			}
-			myReader.close();
-		} catch (FileNotFoundException e) {
-			System.out.println("An error occurred.");
-			e.printStackTrace();
-		}
+		// gets the distinct breads in the list
+		List<String> breedList = dogList.stream().map(d -> d.getBreed()).distinct().collect(Collectors.toList());
+
+		System.out.println(breedList);
+
+		// Finds any dog in the list
+		dogList.stream().findAny().ifPresent(System.out::println);
 
 	}
 }
