@@ -1,3 +1,4 @@
 com\quintrix\jfs\JASONParser.class
+com\quintrix\jfs\DatabaseConnector.class
 com\quintrix\jfs\App.class
 com\quintrix\jfs\Dog.class

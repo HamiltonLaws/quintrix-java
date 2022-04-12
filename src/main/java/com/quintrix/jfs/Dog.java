@@ -18,7 +18,7 @@ public class Dog {
 
 	@Override
 	public String toString() {
-		return "Dog [name=" + name + ", age=" + age + ", breed=" + breed + ", price=" + price + "]";
+		return "Dog name=" + name + ", age=" + age + ", breed=" + breed + ", price=" + price + "";
 	}
 
 	public String getName() {

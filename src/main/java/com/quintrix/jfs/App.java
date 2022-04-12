@@ -23,9 +23,13 @@ public class App {
 
 		dogList.add(dogTwo);
 
-		for (Dog d : dogList) {
-			System.out.println(d);
-		}
+		// for (Dog d : dogList) {
+		// System.out.println(d);
+		// }
+		// replaced for loop with a lambda expression
+		dogList.forEach(p -> {
+			System.out.println(p);
+		});
 
 		// System.out.println("The name of the dog is " + dogOne.getAge() + "\nThey are
 		// " + dogOne.getAge() + "\nThey are a "+ dogOne.getBreed()+ "\nThey are for
